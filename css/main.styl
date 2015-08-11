@@ -1,0 +1,200 @@
+$color-darkGray = #303030
+$color-lightGray = #424242
+$color-accent = #ff1744
+$color-text = blend(rgba(white, 0.87), $color-darkGray)
+
+*
+	box-sizing: border-box
+
+html,
+body,
+#app,
+.app,
+.slide
+	height: 100vh
+	overflow: hidden
+	width: 100vw
+
+body
+	color: $color-text
+	font-family: 'Roboto'
+	font-size: 20px
+	line-height: 1.5
+	margin: 0px
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+
+footer
+	bottom: 0px
+	left: 0px
+	position: absolute
+	right: 0px
+	transition: 0.4s transform ease
+
+a
+	box-shadow: 0px 1px $color-accent
+	color: $color-accent
+	text-decoration: none
+
+h1, h2, h3, h4, h5, h6
+	font-weight: 400
+	margin: 0px
+
+h1
+	font-size: 112px
+	font-weight: 300
+
+.app
+	background-color: $color-darkGray
+
+.slide
+	display: flex
+	padding: 72px
+
+.slide-pane--left
+	flex: 1 1 0px
+
+.slide-pane--right
+	align-items: center
+	display: flex
+	justify-content: flex-end
+	padding-left: 72px
+	width: 560px
+	// width: 640px
+
+.slide-image
+	max-height: 540px
+
+.slide-snippet
+	height: 540px
+	width: 480px
+	
+	&> pre
+		border-radius: 2px
+		height: 100%
+		margin: 0px
+		overflow-x: hidden
+		overflow-y: hidden
+		width: 100%
+		
+		&> code
+			font-family: 'Consolas'
+			font-size: 12px
+			line-height: 16px
+			min-height: 540px
+			padding: 8px
+			-webkit-font-smoothing: subpixel-antialiased
+
+.slide-control
+	align-items: center
+	bottom: 24px
+	cursor: pointer
+	display: flex
+	font-size: 128px
+	height: 128px
+	justify-content: center
+	line-height: 1
+	overflow: hidden
+	position: fixed
+	width: 128px
+	
+	&> .ion
+		transform: scale(0) rotate(270deg)
+		transition: 0.2s transform ease
+		
+	&:hover > .ion
+		transform: scale(1) rotate(0deg)
+
+.slide-control--prev
+	left: 24px
+
+	&.is-first
+		display: none
+
+.slide-control--next
+	right: 24px
+
+	&.is-last
+		display: none
+
+.slide-control--exit
+	bottom: auto
+	right: 24px
+	top: 24px
+
+.slide-item
+	&.level-0
+		&> .slide-item-text
+			font-size: 56px
+			margin-bottom: 64px
+
+	&.level-1
+		&> .slide-item-text
+			font-size: 24px
+			margin-bottom: 24px
+			margin-top: 32px
+
+	&.level-2
+		margin-left: 32px
+		
+		&> .slide-item-text
+			margin-bottom: 16px
+
+.slide--library .slide-image
+	background-color: $color-lightGray
+	border-radius: 2px
+	padding: 20px
+
+.home
+	display: flex
+	flex-direction: column
+	padding: 0px
+	text-align: center
+
+	&> section
+		align-items: center
+		display: flex
+		justify-content: center
+
+.live
+	&> h2
+		margin-bottom: 72px
+	
+
+.home,
+.live
+	&+ footer
+		transform: translate3d(0, 100%, 0)
+
+.home-hero
+	background-color: $color-accent
+	flex: 0 0 60%
+
+.home-subHero
+	flex: 0 0 40%
+
+.home-hero-startButton
+	box-shadow: none
+	color: $color-text
+	font-size: 20px
+	font-weight: 500
+	text-decoration: none
+	text-transform: uppercase
+
+.slideTimeline
+	display: flex
+	justify-content: center
+
+.slideNode
+	background-color: $color-lightGray
+	border-color: $color-darkGray
+	border-style: solid
+	border-width: 20px 0px
+	cursor: pointer
+	height: 48px
+	margin: 0px 8px
+	width: 48px
+
+	&.is-active
+		background-color: $color-accent
+		transition: 0.4s background-color linear
